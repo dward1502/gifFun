@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'myFont';
+    src: url('Tarantino.ttf');
+}
+#title {
+    font-family: 'myFont', sans-serif;
+    text-align: center;
+}
+.gif{
+    font-family: 'myFont', sans-serif;
+    font-size: 14px;
+    color: red;
+    background-color: black;
+    border: 5px solid rgb(73, 71, 71);
+}
+p{
+    font-family: 'myFont', sans-serif;
+    font-size: 14px;
+    color: red;
+}
+#gifs-appear{
+    margin-top: 20px;
+}
+.giphy{
+    display: inline-block;
+}
