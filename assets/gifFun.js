@@ -1,13 +1,13 @@
 
 
-let buttonArr = ["kill bill vol 1","pulp fiction","kill bill vol 2","django","inglorious bastards","reservoir dogs movie","from dusk till dawn movie","hateful eight","jackie brown","death proof movie","sin city",
+let buttonArr = ["kill bill vol 1", "pulp fiction", "kill bill vol 2", "django unchained", "inglorious basterds","reservoir dogs","from dusk till dawn movie","hateful eight","jackie brown","death proof movie","sin city",
                 "samuel l jackson","michael madsen","harvey keitel","tim roth","uma thurman","john travolta"];
 
 function displayButtons(){
     for(let i = 0; i < buttonArr.length; i++){
 
         let buttonDiv = $("<button>")
-        buttonDiv.addClass("btn btn-default gif");
+        buttonDiv.addClass("btn gif");
         buttonDiv.attr("data-movie", buttonArr[i]);
         buttonDiv.text(buttonArr[i]);
         $("#button-display").append(buttonDiv);                
@@ -31,9 +31,9 @@ $("#submit").click(function (e) {
 
 });
 
-$(".gif").click( function(){
+$(document).on("click",".gif", function(){
     let movie = $(this).attr("data-movie");
-    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=YWybm9rw25LBExhvqpGp2UzC3b36mWY0&limit=10"
+    let queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=YWybm9rw25LBExhvqpGp2UzC3b36mWY0&limit=15"
     $("#gifs-appear").html(" ");
    
     $.ajax({
@@ -48,11 +48,12 @@ $(".gif").click( function(){
             let gifImage = $("<img>");
             rating = $("<p>");
             rating.text("Rating: '" + gif[i].rating+"'");
-            gifImage.addClass("giphy");
+            gifDiv.addClass("gif-div");  
+            gifImage.addClass("giphy");          
             gifImage.attr("src", gif[i].images.fixed_height_still.url);
             gifImage.attr("data-still",gif[i].images.fixed_height_still.url);
             gifImage.attr("data-animate",gif[i].images.fixed_height.url);
-            gifDiv.append(rating);
+            gifDiv.prepend(rating);
             gifDiv.prepend(gifImage);
             $("#gifs-appear").prepend(gifDiv);
         }
