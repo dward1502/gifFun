@@ -21,14 +21,6 @@ $("#submit").click(function (e) {
     $("#button-display").empty();
     buttonArr.push(input);
     displayButtons();
-
-    // let newBtn = $("<button>");
-    // newBtn.addClass("gif");
-    // newBtn.attr("data-movie", input);
-    // newBtn.text(input);
-    // $("#button-display").append(newBtn);
-    // console.log("new btn working");
-
 });
 
 $(document).on("click",".gif", function(){
@@ -59,6 +51,7 @@ $(document).on("click",".gif", function(){
         }
         $(".giphy").click( function(){
             let state = $(this).attr("data-state");
+            console.log(this);
 
             if(state === "still"){
                 $(this).attr("src", $(this).attr("data-animate"));
